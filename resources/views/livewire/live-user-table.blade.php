@@ -10,7 +10,7 @@
 
     <table class="table-fixed w-full">
         <thead>
-            <tr class="bg-gray-800 text-white">
+            <tr class="bg-white dark:bg-gray-800 text-gray-800 dark:text-white">
                 <th class="py-4">ID</th>
                 <th class="py-4">NOMBRE</th>
                 <th class="py-4">EMAIL</th>

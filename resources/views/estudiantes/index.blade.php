@@ -7,13 +7,12 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-white dark:bg-gray-800 p-4 shadow-xl sm:rounded-lg">
                 <a type="button" href="{{ route('estudiantes.create') }}" class="bg-indigo-500 px-12 py-2 rounded text-gray-200 font-semibold hover:bg-indigo-800 transition duration-200 each-in-out w-full text-center">Agregar +</a>
 
                 <table class="table-fixed w-full">
                     <thead>
-                        <tr class="bg-gray-800 text-white">
+                        <tr class="bg-white dark:bg-gray-800 text-gray-800 dark:text-white">
                             <th style="display: none;">ID</th>
                             <th class="py-4">FOTO</th>
                             <th class="py-4">NOMBRE</th>
@@ -28,7 +27,7 @@
                                 <td style="display: none;">{{ $estudiante->id }}</td>
                                 <td>
                                     <div class="flex justify-center">
-                                        <img class="h-20 w-20 flex-none rounded-lg bg-gray-50" src="/imagen/{{ $estudiante->imagen }}" width="80%">
+                                        <img class="h-20 w-20 flex-none rounded-lg" src="/imagen/{{ $estudiante->imagen }}" width="80%">
                                     </div>                                                  
                                 </td>
                                 <td class="text-gray-500 text-center">{{ $estudiante->nombre }}</td>
@@ -40,12 +39,12 @@
                                         {{-- boton ver --}}
                                         <!-- <a href="{{ route('estudiantes.show', $estudiante->id) }}" class="rounded bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4">Ver</a> -->
                                         {{-- boton editar --}}
-                                        <a href="{{ route('estudiantes.edit', $estudiante->id) }}" class="rounded-l-lg bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4">Editar</a>
+                                        <a href="{{ route('estudiantes.edit', $estudiante->id) }}" class="rounded-l-lg bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4">Editar</a>
                                         {{-- boton borrar --}}
                                         <form action="{{ route('estudiantes.destroy', $estudiante->id) }}" method="POST" class="formEliminar">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="rounded-r-lg bg-pink-400 hover:bg-pink-500 text-white font-bold py-2 px-4">Borrar</button>
+                                            <button type="submit" class="rounded-r-lg bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4">Borrar</button>
                                         </form>                                        
                                     </div>
                                 </td>
