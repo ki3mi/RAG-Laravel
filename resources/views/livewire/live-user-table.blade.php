@@ -5,7 +5,7 @@
             <option value="10">10</option>
             <option value="20">20</option>
         </select>
-        <input type="text" class="form-input w-full bg-white dark:bg-gray-800 text-white rounded-lg ml-6" wire:model="buscar" placeholder="Termino de busqueda">
+        <input type="text" class="form-input w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-white rounded-lg ml-6" wire:model="buscar" placeholder="Termino de busqueda">
     </div>
 
     <table class="table-fixed w-full">
