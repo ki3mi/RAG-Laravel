@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -58,4 +59,29 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    // funcion para cambiar los nombres del campo rol, admin -> Administrador
+    public function getRolAttribute(): string
+    {
+        if($this->role== 'admin'){
+            return 'Administrador';
+        }
+        return $this->role === 'seller' ? 'Vendedor' : 'Cliente';
+    }
+
+    public  function scopeTermino($query, $termino)
+    {
+        if ($termino === '') {
+            return;
+        }
+        return $query->where('name', 'like', "%{$termino}%")
+            ->orWhere('email', 'like', "%{$termino}%")
+            ->orwhere('id', 'like', "%{$termino}%");
+    }
+    public function scopeRole($query, $role){
+        if($role === ''){
+            return;
+        }
+        return $query->whereRole($role);
+    }
 }

@@ -13,14 +13,17 @@ class LiveUserTable extends Component
     // Variables
     public $buscar = "";
     public $perPage = 5;
+    public $user_role = "";
     
     // Función para mostrar los resultados
+    
     public function render()
     {
+        $users = User::termino($this->buscar)
+            ->role($this->user_role);
+
         return view('livewire.live-user-table', [
-            'users' => User::where('name','like', "%{$this->buscar}%")
-                ->orWhere('email', 'like', "%{$this->buscar}%")
-                ->orwhere('id', 'like', "%{$this->buscar}%")
+            'users' => $users
                 ->paginate($this->perPage),
         ]);
     }
