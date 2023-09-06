@@ -14,6 +14,7 @@ class LiveUserTable extends Component
     public $buscar = "";
     public $perPage = 5;
     public $user_role = "";
+    public $showModal = "hidden";
     
     // Función para mostrar los resultados
     
@@ -27,9 +28,16 @@ class LiveUserTable extends Component
                 ->paginate($this->perPage),
         ]);
     }
+    public function showModal(User $user)
+    {
+        $this->emit('showModal', $user);
+    }
 
     // Funcion que reinicia las páginas "updating" es la palabra reservada y "Buscar" es nuestra variable
     public function updatingBuscar(){
+        $this->resetPage();
+    }
+    public function updatingPerPage(){
         $this->resetPage();
     }
 }
